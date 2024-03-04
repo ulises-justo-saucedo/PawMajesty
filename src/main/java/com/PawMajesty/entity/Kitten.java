@@ -18,6 +18,11 @@ public class Kitten {
 	public Kitten() {
 		
 	}
+	public Kitten(String name, String wealth, String story) {
+		this.name = name;
+		this.wealth = wealth;
+		this.story = story;
+	}
 	public int getId() {
 		return id;
 	}

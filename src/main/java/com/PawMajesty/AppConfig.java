@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import com.PawMajesty.database.Database;
 
 @Configuration
-@ComponentScan(basePackages = {"com.PawMajesty.database"})
+@ComponentScan(basePackages = {"com.PawMajesty"})
 public class AppConfig {
-	@Bean
+	@Bean(name = "database")
 	public Database database() {
 		return new Database();
 	}

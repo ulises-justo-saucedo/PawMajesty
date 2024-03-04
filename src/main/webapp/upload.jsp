@@ -8,5 +8,13 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	<h1>Upload your own kitten!</h1>
+	<p>Save relevant information about it and how it got it's wealth!</p>
+	<form action="uploadkitten" method="POST">
+		<label>Name: </label><input type="text" name="kitten_name" /><br>
+		<label>Wealth (How much money it has?): </label><input type="number" name="wealth" /><br>
+		<label>Story (Tell us how it got it's money!): <textarea name="story"></textarea></label><br>
+		<input type="submit" />
+	</form>
 </body>
 </html>

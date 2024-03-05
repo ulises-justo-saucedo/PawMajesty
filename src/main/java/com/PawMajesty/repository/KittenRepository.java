@@ -1,5 +1,7 @@
 package com.PawMajesty.repository;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +17,13 @@ public class KittenRepository {
 		session.save(kitten);
 		transaction.commit();
 		session.close();
+	}
+	public List<Kitten> selectAll(){
+		Session session = database.openNewSession();
+		Transaction transaction = session.beginTransaction();
+		List<Kitten> kittens = session.createQuery("FROM Kitten",Kitten.class).list();
+		transaction.commit();
+		session.close();
+		return kittens;
 	}
 }

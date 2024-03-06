@@ -24,6 +24,10 @@ public class KittenService {
 			String imageName = imagePart.getSubmittedFileName().toString();
 			String imageFilePathFolder = servletContext.getRealPath("/images/") + imageName;
 			String imageServerPath = URL.IMAGES + imageName;
+			File imageLocalImagesFolder = new File(servletContext.getRealPath("/images/"));
+			if(!imageLocalImagesFolder.exists()) {
+				imageLocalImagesFolder.mkdir();
+			}
 			Files.copy(imageInputStream, new File(imageFilePathFolder).toPath());
 			kitten.setImage(imageServerPath);
 			kittenRepository.save(kitten);
